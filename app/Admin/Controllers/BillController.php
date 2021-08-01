@@ -80,7 +80,8 @@ class BillController extends AdminController
             $form->text('money')->required();
             $form->date('paid_at');
             $form->text('remark');
-            $form->text('screenshot');
+            $form->image('screenshot', 'screenshot');
+
 
             $form->text('admin_user_id')->display(false);
             $form->display('created_at');
