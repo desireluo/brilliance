@@ -13,5 +13,7 @@ Route::group([
 ], function (Router $router) {
 
     $router->get('/', 'HomeController@index');
+    $router->resource('categories', CategoryController::class);
+    $router->resource('bills', BillController::class);
 
 });
