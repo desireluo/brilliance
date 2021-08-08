@@ -15,5 +15,5 @@ Route::group([
     $router->get('/', 'HomeController@index');
     $router->resource('categories', CategoryController::class);
     $router->resource('bills', BillController::class);
-
+    $router->resource('billCharts', BillChartController::class);
 });

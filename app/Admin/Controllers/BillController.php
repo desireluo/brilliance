@@ -2,6 +2,9 @@
 
 namespace App\Admin\Controllers;
 
+use App\Admin\Extensions\Tools\ReleasePost;
+use App\Admin\Extensions\Tools\Review;
+use App\Admin\Extensions\Tools\UserGender;
 use App\Admin\Repositories\Bill;
 use App\Models\AdminUser;
 use App\Models\Category;
@@ -28,7 +31,7 @@ class BillController extends AdminController
             $grid->column('paid_at');
             $grid->column('remark');
             $grid->column('adminUser.name');
-            $grid->column('screenshot');
+            $grid->column('screenshot')->image('',100);
             $grid->column('created_at');
             $grid->column('updated_at')->sortable();
             $grid->model()->orderBy('id', 'desc');
@@ -37,6 +40,13 @@ class BillController extends AdminController
                 //$categoryModel = Category::class;
                 //$filter->equal('type')->options($categoryModel::selectOptions());
             });
+
+            $grid->batchActions([
+                new ReleasePost('发布文章', 1),
+                new ReleasePost('文章下线', 0)
+            ]);
+
+            $grid->tools(new Review());
         });
     }
 
@@ -57,9 +67,9 @@ class BillController extends AdminController
             $show->field('paid_at');
             $show->field('remark');
             $show->field('admin_user_id');
-            $show->field('screenshot');
-            $show->field('created_at');
-            $show->field('updated_at');
+            $show->field('screenshot')->image();
+//            $show->field('created_at');
+//            $show->field('updated_at');
         });
     }
 
@@ -71,11 +81,11 @@ class BillController extends AdminController
     protected function form()
     {
         return Form::make(new Bill(), function (Form $form) {
-            $form->display('id');
+            //$form->display('id');
             $categoryModel = \App\Models\Category::class;
 
             $form->text('name')->required();
-            $form->select('type', trans('admin.parent_id'))->options($categoryModel::selectOptions())->required();
+            $form->select('type', '分类')->options($categoryModel::selectOptions())->required();
 
             $form->text('money')->required();
             $form->date('paid_at');
@@ -84,8 +94,6 @@ class BillController extends AdminController
 
 
             $form->text('admin_user_id')->display(false);
-            $form->display('created_at');
-            $form->display('updated_at');
 
             $form->saving(function (Form $form) {
                 // 判断是否是新增操作
