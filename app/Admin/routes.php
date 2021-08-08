@@ -16,4 +16,5 @@ Route::group([
     $router->resource('categories', CategoryController::class);
     $router->resource('bills', BillController::class);
     $router->resource('billCharts', BillChartController::class);
+    $router->resource('monthGrapths', MonthGrapth::class);
 });

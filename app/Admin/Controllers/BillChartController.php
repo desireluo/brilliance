@@ -15,28 +15,43 @@ class BillChartController extends Controller
     public function index(Content $content)
     {
 
-        $data = [2,2,4,4,5,6,7];
-
         $startWeek =  Carbon::now()->startOfWeek()->toDateString();
         $endWeek = Carbon::now()->endOfWeek()->toDateString();
+        $oneDayAdd = Carbon::parse($startWeek)->addDay(1)->toDateString();
+        $dayNext = Carbon::parse($startWeek)->addDay(2)->toDateString();
+        $day3 = Carbon::parse($startWeek)->addDay(3)->toDateString();
+        $day4 = Carbon::parse($startWeek)->addDay(4)->toDateString();
+        $day5 = Carbon::parse($startWeek)->addDay(5)->toDateString();
 
         $bills = Bill::where('created_at', '>=', $startWeek)->where('created_at','<', $endWeek. ' 23:59:59')->get();
 
-        $groups = $bills->groupBy(function ($i) {
+        $data = $bills->groupBy(function ($i) {
             return substr($i->created_at, 0, 10);
         })->map(function ($i) {
 
             return $i->sum('money');
-        });
-//        dump($groups);
-//        die;
+        })->all();
+
+        $datas = [];
+        foreach ([$startWeek,$oneDayAdd,$dayNext, $day3,$day4,$day5, $endWeek] as $item) {
+
+            if(isset($data[$item])) {
+
+                $datas[] = $data[$item];
+            } else {
+
+                $datas[] = 0;
+            }
+
+        }
+
 
         return $content
             ->header('Dashboard')
             ->description('Description...')
-            ->body(function (Row $row) use($data) {
-                $row->column(6, function (Column $column) use($data) {
-                    $column->row(admin_view('billChart.index', ['data' => json_encode($data)]));
+            ->body(function (Row $row) use($datas) {
+                $row->column(6, function (Column $column) use($datas) {
+                    $column->row(admin_view('billChart.index', ['data' => json_encode($datas)]));
                 });
             });
 
