@@ -13,6 +13,7 @@ use Dcat\Admin\Form;
 use Dcat\Admin\Grid;
 use Dcat\Admin\Show;
 use Dcat\Admin\Http\Controllers\AdminController;
+use Dcat\Admin\Support\Helper;
 
 class BillController extends AdminController
 {
@@ -31,7 +32,12 @@ class BillController extends AdminController
             $grid->column('paid_at');
             $grid->column('remark');
             $grid->column('adminUser.name');
-            $grid->column('screenshot')->image('',100);
+            $grid->column('screenshot')->display(function ($pictures) {
+
+                return json_decode($pictures, true);
+
+            })->image('', 100);
+
             $grid->column('created_at');
             $grid->column('updated_at')->sortable();
             $grid->model()->orderBy('id', 'desc');
@@ -45,6 +51,7 @@ class BillController extends AdminController
                 new ReleasePost('发布文章', 1),
                 new ReleasePost('文章下线', 0)
             ]);
+            $grid->setActionClass(Grid\Displayers\Actions::class);
 
             $grid->tools(new Review());
         });
@@ -90,7 +97,15 @@ class BillController extends AdminController
             $form->text('money')->required();
             $form->date('paid_at');
             $form->text('remark');
-            $form->image('screenshot', 'screenshot');
+            $form->multipleImage('screenshot', 'screenshot')->saving(function ($paths) {
+
+                $paths = Helper::array($paths);
+                return json_encode($paths);
+            })->customFormat(function ($paths) {
+
+                // 转为数组
+                return Helper::array($paths);
+            });
 
 
             $form->text('admin_user_id')->display(false);
