@@ -48,6 +48,29 @@ namespace Dcat\Admin {
      * @property Grid\Column|Collection payload
      * @property Grid\Column|Collection exception
      * @property Grid\Column|Collection failed_at
+     * @property Grid\Column|Collection state
+     * @property Grid\Column|Collection city
+     * @property Grid\Column|Collection district
+     * @property Grid\Column|Collection address
+     * @property Grid\Column|Collection custom_id
+     * @property Grid\Column|Collection specification
+     * @property Grid\Column|Collection barcode
+     * @property Grid\Column|Collection platform
+     * @property Grid\Column|Collection price
+     * @property Grid\Column|Collection shop_id
+     * @property Grid\Column|Collection buyer_nick
+     * @property Grid\Column|Collection order_id
+     * @property Grid\Column|Collection sku
+     * @property Grid\Column|Collection spec
+     * @property Grid\Column|Collection pic_url
+     * @property Grid\Column|Collection num
+     * @property Grid\Column|Collection company
+     * @property Grid\Column|Collection bill_code
+     * @property Grid\Column|Collection print_data
+     * @property Grid\Column|Collection created
+     * @property Grid\Column|Collection modified
+     * @property Grid\Column|Collection sku_id
+     * @property Grid\Column|Collection oid
      * @property Grid\Column|Collection email
      * @property Grid\Column|Collection token
      * @property Grid\Column|Collection email_verified_at
@@ -89,6 +112,29 @@ namespace Dcat\Admin {
      * @method Grid\Column|Collection payload(string $label = null)
      * @method Grid\Column|Collection exception(string $label = null)
      * @method Grid\Column|Collection failed_at(string $label = null)
+     * @method Grid\Column|Collection state(string $label = null)
+     * @method Grid\Column|Collection city(string $label = null)
+     * @method Grid\Column|Collection district(string $label = null)
+     * @method Grid\Column|Collection address(string $label = null)
+     * @method Grid\Column|Collection custom_id(string $label = null)
+     * @method Grid\Column|Collection specification(string $label = null)
+     * @method Grid\Column|Collection barcode(string $label = null)
+     * @method Grid\Column|Collection platform(string $label = null)
+     * @method Grid\Column|Collection price(string $label = null)
+     * @method Grid\Column|Collection shop_id(string $label = null)
+     * @method Grid\Column|Collection buyer_nick(string $label = null)
+     * @method Grid\Column|Collection order_id(string $label = null)
+     * @method Grid\Column|Collection sku(string $label = null)
+     * @method Grid\Column|Collection spec(string $label = null)
+     * @method Grid\Column|Collection pic_url(string $label = null)
+     * @method Grid\Column|Collection num(string $label = null)
+     * @method Grid\Column|Collection company(string $label = null)
+     * @method Grid\Column|Collection bill_code(string $label = null)
+     * @method Grid\Column|Collection print_data(string $label = null)
+     * @method Grid\Column|Collection created(string $label = null)
+     * @method Grid\Column|Collection modified(string $label = null)
+     * @method Grid\Column|Collection sku_id(string $label = null)
+     * @method Grid\Column|Collection oid(string $label = null)
      * @method Grid\Column|Collection email(string $label = null)
      * @method Grid\Column|Collection token(string $label = null)
      * @method Grid\Column|Collection email_verified_at(string $label = null)
@@ -135,6 +181,29 @@ namespace Dcat\Admin {
      * @property Show\Field|Collection payload
      * @property Show\Field|Collection exception
      * @property Show\Field|Collection failed_at
+     * @property Show\Field|Collection state
+     * @property Show\Field|Collection city
+     * @property Show\Field|Collection district
+     * @property Show\Field|Collection address
+     * @property Show\Field|Collection custom_id
+     * @property Show\Field|Collection specification
+     * @property Show\Field|Collection barcode
+     * @property Show\Field|Collection platform
+     * @property Show\Field|Collection price
+     * @property Show\Field|Collection shop_id
+     * @property Show\Field|Collection buyer_nick
+     * @property Show\Field|Collection order_id
+     * @property Show\Field|Collection sku
+     * @property Show\Field|Collection spec
+     * @property Show\Field|Collection pic_url
+     * @property Show\Field|Collection num
+     * @property Show\Field|Collection company
+     * @property Show\Field|Collection bill_code
+     * @property Show\Field|Collection print_data
+     * @property Show\Field|Collection created
+     * @property Show\Field|Collection modified
+     * @property Show\Field|Collection sku_id
+     * @property Show\Field|Collection oid
      * @property Show\Field|Collection email
      * @property Show\Field|Collection token
      * @property Show\Field|Collection email_verified_at
@@ -176,6 +245,29 @@ namespace Dcat\Admin {
      * @method Show\Field|Collection payload(string $label = null)
      * @method Show\Field|Collection exception(string $label = null)
      * @method Show\Field|Collection failed_at(string $label = null)
+     * @method Show\Field|Collection state(string $label = null)
+     * @method Show\Field|Collection city(string $label = null)
+     * @method Show\Field|Collection district(string $label = null)
+     * @method Show\Field|Collection address(string $label = null)
+     * @method Show\Field|Collection custom_id(string $label = null)
+     * @method Show\Field|Collection specification(string $label = null)
+     * @method Show\Field|Collection barcode(string $label = null)
+     * @method Show\Field|Collection platform(string $label = null)
+     * @method Show\Field|Collection price(string $label = null)
+     * @method Show\Field|Collection shop_id(string $label = null)
+     * @method Show\Field|Collection buyer_nick(string $label = null)
+     * @method Show\Field|Collection order_id(string $label = null)
+     * @method Show\Field|Collection sku(string $label = null)
+     * @method Show\Field|Collection spec(string $label = null)
+     * @method Show\Field|Collection pic_url(string $label = null)
+     * @method Show\Field|Collection num(string $label = null)
+     * @method Show\Field|Collection company(string $label = null)
+     * @method Show\Field|Collection bill_code(string $label = null)
+     * @method Show\Field|Collection print_data(string $label = null)
+     * @method Show\Field|Collection created(string $label = null)
+     * @method Show\Field|Collection modified(string $label = null)
+     * @method Show\Field|Collection sku_id(string $label = null)
+     * @method Show\Field|Collection oid(string $label = null)
      * @method Show\Field|Collection email(string $label = null)
      * @method Show\Field|Collection token(string $label = null)
      * @method Show\Field|Collection email_verified_at(string $label = null)

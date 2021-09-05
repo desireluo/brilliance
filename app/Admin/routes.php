@@ -17,4 +17,11 @@ Route::group([
     $router->resource('bills', BillController::class);
     $router->resource('billCharts', BillChartController::class);
     $router->resource('monthGrapths', MonthGrapth::class);
+
+    $router->get('myIndex', 'MyIndexController@index');
+
+
+    $router->resource('requirejs', RequireJsController::class);
+    $router->resource('orders', OrderController::class);
+
 });
